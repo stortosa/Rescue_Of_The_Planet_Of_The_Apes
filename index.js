@@ -1,3 +1,3 @@
 window.onload = function() {
-  Game.init("planet");
+  Game.init("planet"); //canvas
 };

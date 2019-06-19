@@ -9,11 +9,11 @@ class Obstacle {
     this.y = playerY + playerH - this.h - 5;
 
     this.img = new Image();
-    this.img.src = src;
+    this.img.src = './Images/';
 
   }
 
-  draw(){ //dibujando los obstaculos
+  drawO(){ //dibujando los obstaculos
     this.ctx.drawImage(
       this.img,
       this.x,
@@ -24,7 +24,7 @@ class Obstacle {
 
   }
 
-  move(){ // moviendo los obstaculos
+  moveO(){ // moviendo los obstaculos
     this.x -= this.dx;
   }
 
