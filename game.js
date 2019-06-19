@@ -75,13 +75,15 @@ this.background = new Background('./Images/BackgroundInicio2.png', this.hCanvas,
 // this.background2 = new Background('./Images/desierto1.png', this.hCanvas, this.wCanvas, this.ctx)
 // this.background3 = new Background('./Images/forest1.png', this.hCanvas, this.wCanvas, this.ctx)
 this.player = new Player(this.ctx, this.wCanvas)
-this.obstacle = new Obstacle()
+// this.obstacle = new Obstacle()
 },
 
 // mover todo:
 moveAll: function() {
-  // this.background.move()
-  // this.player.movimientoPlayer()  //movimientoPlayer()
+  this.background.move()
+  this.player.movimientoPlayer()  //movimientoPlayer()
+  // this.player.render()
+  this.player.animateImg()
   
   //   if (this.framesCounter <= 400){ 
   //     // this.background.draw()
