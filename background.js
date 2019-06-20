@@ -18,29 +18,41 @@ class Background{
   // dibujando el bakcground
   draw(){
    
-    this.ctx.drawImage(
-      this.img,
-      this.x,
-      this.y,
-      this.canvasWB,
-      this.canvasHB
-    )
+    // this.ctx.drawImage(
+    //   this.img,
+    //   this.x++,
+    //   this.y,
+    //   this.canvasWB,
+    //   this.canvasHB
+    // )
 
     this.ctx.drawImage(
       this.img,
-      this.x + this.canvasWB,
-      this.y,
-      this.canvasWB,
-      this.canvasHB
+      this.x,
+      this.y - 300,
+      this.img.width,
+      this.canvasHB + 300
     )
 
   
   }
 
+  moveLeft() {
+    this.x -= this.dx;
+  }
+
+  moveRight() {
+    this.x += this.dx;
+
+    if (this.x > 0) {
+      this.x = 0
+    }
+  }
+
   move(){
     this.x -= this.dx;
 
-    if (this.x < -this.canvasWB) this.x = 0;
+    //if (this.x < -this.canvasWB) this.x = 0;
   }
 
 }
