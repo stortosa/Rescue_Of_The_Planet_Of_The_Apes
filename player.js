@@ -8,7 +8,7 @@ class Player{
     this.keyRight = 39;
     this.keyLeft = 37;
     this.keyJump = 32;
-    this.game = game
+    this.game = framesCounter
     this.keys = {
       right: false,
       left: false,
@@ -20,6 +20,7 @@ class Player{
     this.x0 = 10 // para avanzar el muñeco en pixeles
     this.posY0 =  500  //this.hCanvas * 0.8;   //500; posicion Y del muñeco
     this.posY = this.posY0;
+    this.canTop = true
 
 
     this.cFrame = 0;
@@ -31,7 +32,7 @@ class Player{
    
    
     // número de imágenes diferentes
-    this.img.frames = 9;  //21
+    this.img.frames = 9;  
     this.img.frameIndex = 0;
 
     this.velJump = 10;
@@ -52,6 +53,7 @@ class Player{
   moveRight() {
     this.keys.right = true;
     this.keys.left = false;
+    this.keys.jump = false;
     this.posX += 10;
 
     this.animateImg()
@@ -59,10 +61,14 @@ class Player{
       this.posX = 700
     }
   }
+// flipImage() {    poner imagen de vuelta
+//   this.img.src = "./Images/Protagonista.png"
+// }
 
   moveLeft(){
     this.keys.left = true;
     this.keys.right = false;
+    this.keys.jump = false;
     this.posX -= 10;  
     if (this.posX < 40) {
         this.posX = 40
@@ -70,24 +76,39 @@ class Player{
   }
   
   moveJump(){
-
+  
+    this.keys.jump = true
     // solo salta cuando el personaje está en el suelo
+    if(this.keys.jump && this.canTop){
+      console.log(this.posY)
+      this.canTop = false
+      this.posY -= 20;
+      this.vy -= 20;
+      console.log(this.posY)
+    }
+    // console.log(this.posY, this.posY0)
+
     if (this.posY >= this.posY0) {
-      this.vy = 1;
-      this.posY = this.posY0;
+      
+      this.posY = this.posY0;         // this.vy = 1;
+      this.vy = 1;  
+      this.canTop = true          // this.posY = this.posY0;
       } else {
+       
       this.vy += this.gravity;
       this.posY += this.vy;
     }
     console.log("salta!!!")
-    }
-
-  
+    
+    // this.posY -= 5;
+    // this.vy -= 10;
+  }
   animateImg() {
     
     // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-    if (this.framesCounter % 2 === 0) {   //game
+    if (this.game.framesCounter % 2 === 0) {   //game
       this.img.frameIndex += 1;
+      console.log(this.img.frameIndex)
       
 
       // Si el frame es el último, se vuelve al primero
@@ -103,7 +124,7 @@ class Player{
         Math.floor(this.img.width / this.img.frames), //this.frameWidth,
         this.frameHeight,
         this.posX, //donde ponerlo inicio
-        this.posY0,
+        this.posY,
         this.frameWidth,
         this.frameHeight
       )

@@ -33,16 +33,14 @@ init: function(id){
       this.background.moveLeft()
     }
 
-    // if(e.keycode === 32){
-    //   this.player.moveJump()
-    // }
-    if (e.keyCode === this.keyJump && this.posY == this.posY0) {
-      this.posY -= 5;
-      this.vy -= 10;
-    } 
+    // if (e.keyCode === 32 && this.posY == this.posY0) {
+    //   this.posY -= 5;
+    //   this.vy -= 10;
+    // } 
 
     if (e.keyCode === 32) {
       this.player.moveJump()
+      
       
   }
 }
@@ -83,9 +81,6 @@ start: function() {
 },
 
 
-
-
-
 //limpieza de la pantalla
 
 clearScreen: function() {
@@ -99,22 +94,23 @@ reset: function() {
   //la imagen con todas pegadas
 this.background = new Background('./Images/pruebaStage.png', this.hCanvas, this.wCanvas, this.ctx)
 this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
+this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
+this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+
 // this.obstacle = new Obstacle(x, y)
-// this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
 },
 
 // mover todo:
 moveAll: function() {
-
 },
 
 
 // dibujar todo:
 drawAll: function(){
-
+  this.scoreBoard.draw()
   this.background.draw()
   this.player.draw()
-  // this.enemie.draw()
+  this.enemie.draw()
   // this.obstacle.draw()
 
 },
