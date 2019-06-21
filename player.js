@@ -15,8 +15,8 @@ class Player {
       left: false,
       jump: false
     };
-    this.playerW = 150;
-    this.playerH = 250;
+    this.playerW = 120; //150;
+    this.playerH = 250;  //250;
     this.posX = 80;
     this.x0 = 10 // para avanzar el muñeco en pixeles
     this.posY0 = 500  //this.hCanvas * 0.8;   //500; posicion Y del muñeco
@@ -28,9 +28,9 @@ class Player {
 
     //elegimos imagen
     this.img = new Image();
-    this.img.src = './Images/protaRight.png';  //'./Images/Protagonista.png';
+    this.img.src = './Images/ProtaDefinitivo.png';  //'./Images/Protagonista.png';
     // número de imágenes diferentes
-    this.img.frames = 9;
+    this.img.frames = 5;
     this.img.frameIndex = 0;
 
     this.endSprite = false;
@@ -42,8 +42,8 @@ class Player {
     this.vy = 1;
 
 
-    this.frameWidth = 49;  // 73  Coger la mitad de las imagenes del Earth N64
-    this.frameHeight = 70;  // 155
+    this.frameWidth =  63;  //49;  
+    this.frameHeight = 93;  //70;  
   }
 
   moveRight() {
@@ -110,7 +110,7 @@ class Player {
       // console.log(this.img.frameIndex)    
 
       //Si el frame es el último, se vuelve al primero
-      if (this.img.frameIndex > 9) this.img.frameIndex = 0;
+      if (this.img.frameIndex > 4) this.img.frameIndex = 0;
     }
     //}
   }

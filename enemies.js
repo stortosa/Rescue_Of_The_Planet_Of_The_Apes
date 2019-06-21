@@ -37,14 +37,13 @@ class Enemy {
 
   move() {
     this.x -= this.enemySpeed
+    if(this.x < 0){
+      this.x = 1000
+    }
   }
 
   draw() {
-    // this.ctx.drawImage(
-    //   this.imgEnemy,
-    //   500,
-    //   500
-    // )
+    
     this.ctx.drawImage(
       this.imgEnemy,
       this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,,
@@ -61,7 +60,7 @@ class Enemy {
 
   animateImgEnemy() {
     // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-    if (this.game.framesCounter % 10 === 0) {
+    if (this.game.framesCounter % 7 === 0) {
       this.imgEnemy.frameIndex += 1;
       // Si el frame es el último, se vuelve al primero
       if (this.imgEnemy.frameIndex > 4) this.imgEnemy.frameIndex = 0;

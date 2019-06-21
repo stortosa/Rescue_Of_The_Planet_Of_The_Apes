@@ -48,10 +48,6 @@ var Game = {
 
       // if (destroyedApple !== null) apples.splice(destroyedApple, 1)
 
-      // if (e.keyCode === 32 && this.posY == this.posY0) {
-      //   this.posY -= 5;
-      //   this.vy -= 10;
-      // } 
     }
 
     this.start();
@@ -102,7 +98,14 @@ var Game = {
     this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
     this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter, Game)
     this.apples = [
-      new Apple(this.ctx, this.x, this.y)
+      new Apple(this.ctx, 200, 500),
+      new Apple(this.ctx, 330, 500),
+      new Apple(this.ctx, 450, 500),
+      new Apple(this.ctx, 600, 500),
+      new Apple(this.ctx, 725, 500),
+      new Apple(this.ctx, 850, 500),
+      new Apple(this.ctx, 1000, 500),
+
     ]
     // this.obstacle = new Obstacle(this.ctx,this.w)
     // this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
@@ -113,6 +116,7 @@ var Game = {
   // mover todo:
   moveAll: function () {
     this.enemy.move()
+    this.apple.move()
     // this.obstacle.move()
     // this.enemy.animateImgEnemy()
 
