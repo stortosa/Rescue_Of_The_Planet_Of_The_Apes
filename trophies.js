@@ -15,7 +15,7 @@ class Apple {
       if (!this.destroyed) {
           this.ctx.beginPath();
           this.ctx.fillStyle = this.color;
-          this.ctx.arc(this.x, this.y + 10, 10, 0, PI_DOUBLE);
+          this.ctx.arc(this.x, this.y + 10, 10, 0, 2 * Math.PI);
           this.ctx.fill();
           this.ctx.closePath();
       }
