@@ -1,21 +1,22 @@
 //creando el protagonista
 
 class Enemy {
-  constructor(ctx, wCanvas, framesCounter, game) {  //keys
+  constructor(ctx, x, y, enemySpeed, wCanvas, framesCounter, game) {  //keys
+    this.x = x
+    this.y = y
+    this.game = game
     this.ctx = ctx;
     this.wCanvas = wCanvas;
-    this.game = framesCounter
+    this.framesCounter = framesCounter
     this.enemyW = 100;
     this.enemyH = 150;
-    this.posX = 200;
     this.x0 = 30 // para avanzar el muñeco en pixeles
     this.posY = 500;
     this.cFrame = 0;
     this.gravity = 0.4;
-    this.enemySpeed = 5;
+    this.enemySpeed = enemySpeed;
 
-    this.imgEnemy = new Image();
-    this.imgEnemy.src = './Images/gorillaBueno.png';
+    this.imgEnemy = imgEnemy
     // número de imágenes diferentes
     this.imgEnemy.frames = 5;
     this.imgEnemy.frameIndex = 0;
@@ -34,34 +35,33 @@ class Enemy {
   }
 
   move() {
-    this.posX -= this.enemySpeed
+    this.x -= this.enemySpeed
   }
+
   draw() {
+    // this.ctx.drawImage(
+    //   this.imgEnemy,
+    //   500,
+    //   500
+    // )
     this.ctx.drawImage(
       this.imgEnemy,
-      this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,
+      this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,,
       0,
-      Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
-      this.frameHeight,
-      500, //donde ponerlo inicio
-      500,
-      200,
-      200
+      100,
+      100,
+      this.x, //donde ponerlo inicio (x, y)
+      this.y,
+      100,
+      100
     )
-    this.cFrame++
-    if (this.cFrame > 5) {
-      this.cFrame = 0;
-    }
-    // this.posX -= this.enemySpeed
-
+    this.animateImgEnemy()
   }
 
   animateImgEnemy() {
-    console.log(this.animateImgEnemy)
     // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
     if (this.game.framesCounter % 2 === 0) {
       this.imgEnemy.frameIndex += 1;
-      console.log(this.imgEnemy.frameIndex)
       // Si el frame es el último, se vuelve al primero
       if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
     }
