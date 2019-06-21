@@ -5,4 +5,6 @@ window.onload = function() {
     gameStartImage.style.display = "none";
     Game.init("planet"); //canvas
   }
+
+  gameStartImage.click()
 };

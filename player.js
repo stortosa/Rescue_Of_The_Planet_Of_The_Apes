@@ -2,6 +2,7 @@
 
 class Player{
   constructor(ctx, wCanvas, hCanvas, framesCounter, game){  //keys
+    this.maxYWhenJumping = 250
     this.wCanvas = wCanvas;
     this.hCanvas = hCanvas;
     this.ctx = ctx;
@@ -96,29 +97,20 @@ class Player{
   }
   
   moveJump(){
-  
-    this.keys.jump = true
-    // solo salta cuando el personaje está en el suelo
-    if(this.keys.jump && this.canTop){
-      this.canTop = false
-      this.posY -= 20;
-      this.vy -= 20;
-    }
+    let sense = -1
 
-    if (this.posY >= this.posY0) {
+    const intervalID = setInterval(() => {
+      this.posY+=(10 * sense)
+
+      if (this.posY < this.maxYWhenJumping) {
+        sense = 1
+      }
+
+      if (this.posY === 500) {
+        clearInterval(intervalID)
+      }
       
-      this.posY = this.posY0;         // this.vy = 1;
-      this.vy = 1;  
-      this.canTop = true          // this.posY = this.posY0;
-      } else {
-       
-      this.vy += this.gravity;
-      this.posY += this.vy;
-      // this.keys.jump = true;
-
-    }
-    console.log("salta!!!")
-    
+    }, 10)
   }
   
   draw(){  

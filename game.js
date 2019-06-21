@@ -31,29 +31,32 @@ var Game = {
         this.background.moveLeft()
       }
 
+      if (e.keyCode === 32) {
+        debugger
+        this.player.moveJump()
+
+
+      }
+
       /////////
-      let destroyedApple = null
+      // let destroyedApple = null
 
-      apples.forEach((apple, idx) => {
-        if (apple.x === player.x) {
-          apple.destroy()
-          destroyedApple = idx
-          scoreBoard.increaseScore()
-        }
-      })
+      // this.apples.forEach((apple, idx) => {
+      //   if (apple.x === player.x) {
+      //     apple.destroy()
+      //     destroyedApple = idx
+      //     scoreBoard.increaseScore()
+      //   }
+      // })
 
-      if (destroyedApple !== null) apples.splice(destroyedApple, 1)
+      // if (destroyedApple !== null) apples.splice(destroyedApple, 1)
 
       // if (e.keyCode === 32 && this.posY == this.posY0) {
       //   this.posY -= 5;
       //   this.vy -= 10;
       // } 
 
-      if (e.keyCode === 32) {
-        this.player.moveJump()
-
-
-      }
+     
     }
 
     this.start();

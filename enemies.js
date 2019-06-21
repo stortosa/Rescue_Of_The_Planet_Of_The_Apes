@@ -53,8 +53,6 @@ class Enemie{
     200,
     200
     )
-      console.log("entra")
-
         this.cFrame++
         if(this.cFrame > 5){
           this.cFrame = 0;
