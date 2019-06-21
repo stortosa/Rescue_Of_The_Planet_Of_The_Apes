@@ -30,7 +30,7 @@ class Background{
       this.img,
       this.x,
       this.y - 300,
-      this.img.width,
+      10000,
       this.canvasHB + 300
     )
 

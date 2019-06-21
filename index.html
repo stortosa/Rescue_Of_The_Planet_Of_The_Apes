@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"> 
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
   <link rel="stylesheet" type="text/css" href="game.css">
 
   <script type="text/javascript" src="background.js"></script>
@@ -15,35 +16,17 @@
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript">
-  function Empezar(){
-    document.getElementById('planet').style.display = "block";
-  }
-  function Ocultar(){
-    document.getElementById('planet').style.display = "none";
-  }
-  function Mostrar_Ocultar(){
-    var canvas = document.getElementById('planet');
-    if(canvas.style.display == "none"){
-      Start();
-      document.getElementById('boton').value = "Ocultar";
-    }else {
-      Ocultar();
-      document.getElementById('boton').value = "Start";
 
-    }
-  }
   </script>
   <!-- <link rel="stylesheet" href="style.css"> -->
   <title>Rescue Of The Panet Of The Apes (Museum Version)</title>
 </head>
+
 <body>
-    <div id="container-game">
-      <a href="#"> <img src="images/Intro.jpg"  alt="start-image" class="star-planet" ></a>
-    </div>
-    <input type="submit" id="boton" value="Start" onclick="Start()"/>
-    <input type="submit" value="Ocultar" onclick="Ocultar()"/>
-
-    <canvas id="planet" width="700" height="500"></canvas>
-
+  <div id="container-game">
+    <img src="images/Intro.jpg" alt="start-image" class="star-planet">
+  </div>
+  <canvas id="planet" width="700" height="500"></canvas>
 </body>
+
 </html>
