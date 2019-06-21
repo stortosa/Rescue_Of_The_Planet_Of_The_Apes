@@ -8,8 +8,8 @@ class Enemy {
     this.ctx = ctx;
     this.wCanvas = wCanvas;
     this.framesCounter = framesCounter
-    this.enemyW = 100;
-    this.enemyH = 150;
+    this.enemyW = 148;
+    this.enemyH = 100;
     this.x0 = 30 // para avanzar el muñeco en pixeles
     this.posY = 500;
     this.cFrame = 0;
@@ -17,6 +17,7 @@ class Enemy {
     this.enemySpeed = enemySpeed;
 
     this.imgEnemy = imgEnemy
+
     // número de imágenes diferentes
     this.imgEnemy.frames = 5;
     this.imgEnemy.frameIndex = 0;
@@ -27,9 +28,9 @@ class Enemy {
     // this.velJump = 10;
 
 
-    this.frameWidthTotal = 423;
-    this.frameWidth = this.frameWidthTotal / 5;
-    this.frameHeightTotal = 140;
+    this.frameWidthTotal = 740;
+    // this.frameWidth = this.frameWidthTotal / 5;
+    this.frameHeightTotal = 100;
 
     // this.setListener();  
   }
@@ -48,8 +49,8 @@ class Enemy {
       this.imgEnemy,
       this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,,
       0,
-      100,
-      100,
+      148,//100,
+      100,//100,
       this.x, //donde ponerlo inicio (x, y)
       this.y,
       100,
@@ -60,10 +61,10 @@ class Enemy {
 
   animateImgEnemy() {
     // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-    if (this.game.framesCounter % 2 === 0) {
+    if (this.game.framesCounter % 10 === 0) {
       this.imgEnemy.frameIndex += 1;
       // Si el frame es el último, se vuelve al primero
-      if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
+      if (this.imgEnemy.frameIndex > 4) this.imgEnemy.frameIndex = 0;
     }
   }
 }

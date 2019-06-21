@@ -100,7 +100,7 @@ var Game = {
     //la imagen con todas pegadas
     this.background = new Background('./Background/backgroundFinal.png', this.hCanvas, this.wCanvas, this.ctx)
     this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
-    this.enemy = new Enemy(this.ctx, 800, 500, 10, this.wCanvas, this.framesCounter, Game)
+    this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter, Game)
     this.apples = [
       new Apple(this.ctx, this.x, this.y)
     ]
