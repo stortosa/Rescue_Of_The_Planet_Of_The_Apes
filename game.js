@@ -31,6 +31,19 @@ init: function(id){
       this.background.moveLeft()
     }
 
+    /////////
+    let destroyedApple = null
+
+    apples.forEach((apple, idx) => {
+        if (apple.x === player.x) {
+            apple.destroy()
+            destroyedApple = idx
+            scoreBoard.increaseScore()
+        }
+    })
+
+    if (destroyedApple !== null) apples.splice(destroyedApple, 1)
+
     // if (e.keyCode === 32 && this.posY == this.posY0) {
     //   this.posY -= 5;
     //   this.vy -= 10;
@@ -65,14 +78,14 @@ start: function() {
     this.clearScreen();
 
     this.framesCounter ++
-
     if (this.framesCounter > 1000) {
       this.framesCounter = 0;
     }
      
-      this.drawAll()
+    this.drawAll()
       // this.moveAll()
-      
+    
+      apples.forEach(apple => apple.draw())
 
   },1000/this.fps)
 
@@ -92,7 +105,8 @@ reset: function() {
   //la imagen con todas pegadas
 this.background = new Background('./Images/pruebaStage.png', this.hCanvas, this.wCanvas, this.ctx)
 this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
-// this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+this.apple = new Apple(this.x, this.y)
 // this.obstacle = new Obstacle(this.ctx,this.w)
 // this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
 
@@ -101,8 +115,8 @@ this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
 
 // mover todo:
 moveAll: function() {
+  this.enemie.move()
   // this.obstacle.move()
-  // this.enemie.move()
   // this.enemie.animateImgEnemie()
 
 },
@@ -110,13 +124,14 @@ moveAll: function() {
 
 // dibujar todo:
 drawAll: function(){
-  // this.scoreBoard.draw()
   this.background.draw()
   this.player.draw()
-  // this.enemie.draw()
+  this.apple.draw()
+  this.enemie.draw()
   // this.obstacle.draw()
   // this.obstacle.draw()
-
+  // this.scoreBoard.draw()
+  
 },
 
 }

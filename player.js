@@ -26,18 +26,18 @@ class Player{
     this.gravity = 0.4;
 
     //imagenes
-    this.imgs = {
-      rightImg: new Image(),
-      leftImg: new Image(),
-    }
-    //move rigth
-    this.imgs.rightImg.src = './Images/protaRight.png';
-    this.imgs.rightImg.frames = 9;
-    this.imgs.rightImg.frameIndex = 0;
-    //move left
-    this.imgs.leftImg.src = './Images/protaLeft.png';
-    this.imgs.leftImg.frames = 9;
-    this.imgs.leftImg.frameIndex = 0;
+    // this.imgs = {
+    //   rightImg: new Image(),
+    //   leftImg: new Image(),
+    // }
+    // //move rigth
+    // this.imgs.rightImg.src = './Images/protaRight.png';
+    // this.imgs.rightImg.frames = 9;
+    // this.imgs.rightImg.frameIndex = 0;
+    // //move left
+    // this.imgs.leftImg.src = './Images/protaLeft.png';
+    // this.imgs.leftImg.frames = 9;
+    // this.imgs.leftImg.frameIndex = 0;
     
     
     
@@ -127,7 +127,7 @@ class Player{
       this.img.frameIndex * Math.floor(this.img.width / this.img.frames),   //*cFrame
       0,
       Math.floor(this.img.width / this.img.frames), //this.frameWidth,
-      this.playerH = 150,   //this.frameHeight,
+      this.playerH,   //this.frameHeight,
       this.posX, //donde ponerlo inicio
       this.posY,
       this.playerW, // = 100, //this.frameWidth,

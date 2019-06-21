@@ -28,38 +28,31 @@ class Enemie{
 
 
     this.frameWidthTotal = 423;
-    this.frameWidth = this.frameWidthTotal / 5
+    this.frameWidth = this.frameWidthTotal / 5;
     this.frameHeightTotal = 140;
 
    
 
     // this.setListener();  
   }
-
   
-  animateImgEnemie() {
-    console.log(this.animateImgEnemie)
-    // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-    if (this.game.framesCounter % 2 === 0) {
-      this.imgEnemy.frameIndex += 1;
-      console.log(this.imgEnemy.frameIndex)
-      // Si el frame es el último, se vuelve al primero
-      if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
-    }
+  
+  
+  move(){
+    this.posX -= this.enemieSpeed
   }
- 
   draw(){   
-      this.ctx.drawImage(
-        this.imgEnemy,
-        this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy), //this.cFrame,
-        0,
-        Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
-        this.frameHeight,
-        500, //donde ponerlo inicio
-        500,
-        200,
-        200
-      )
+    this.ctx.drawImage(
+    this.imgEnemy,
+    this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,
+    0,
+    Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
+    this.frameHeight,
+    500, //donde ponerlo inicio
+    500,
+    200,
+    200
+    )
       console.log("entra")
 
         this.cFrame++
@@ -71,7 +64,14 @@ class Enemie{
     
   }
 
-  move(){
-     this.posX -= this.enemieSpeed
-  }
+   animateImgEnemie() {
+    console.log(this.animateImgEnemie)
+   // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
+   if (this.game.framesCounter % 2 === 0) {
+   this.imgEnemy.frameIndex += 1;
+   console.log(this.imgEnemy.frameIndex)
+   // Si el frame es el último, se vuelve al primero
+     if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
+       }
+   }
 }

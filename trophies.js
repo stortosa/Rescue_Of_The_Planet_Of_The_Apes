@@ -2,28 +2,31 @@
 //meterlos en un array para saber si se han cogido todos y poner
 //el 100% de conseguido
 
-let destroyedApple = null
-
-class Trophy {
-  constructor(src){
-    this.w =
-    this.h =
-    this.img = new Image();
-    this.img.src = src;
+class Apple {
+  constructor(ctx, x, y) {
+      this.ctx = ctx
+      this.x = x
+      this.y = y
+      this.destroyed = false
+      this.color = "black" //`rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`
   }
 
-  // let destroyedApple = null
-
-  apples.forEach((apple, idx) => {
-      if (apple.x === player.x) {
-          apple.destroy()
-          destroyedApple = idx
-          scoreBoard.increaseScore()
+  draw() {
+      if (!this.destroyed) {
+          this.ctx.beginPath();
+          this.ctx.fillStyle = this.color;
+          this.ctx.arc(this.x, this.y + 10, 10, 0, PI_DOUBLE);
+          this.ctx.fill();
+          this.ctx.closePath();
       }
-  })
+  }
 
-  if (destroyedApple !== null) apples.splice(destroyedApple, 1)
+  destroy() {
+      this.destroyed = true
+  }
 
+  // over here you could check if two apples match the same location by using a do-while statement :)
+// let apples = Array(5).fill().map(x => new Apple(randomInt(0, 100) * 10, h2))
 
 }
 
