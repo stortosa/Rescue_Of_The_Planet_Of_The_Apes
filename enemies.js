@@ -1,6 +1,6 @@
 //creando el protagonista
 
-class Enemie {
+class Enemy {
   constructor(ctx, wCanvas, framesCounter, game) {  //keys
     this.ctx = ctx;
     this.wCanvas = wCanvas;
@@ -56,8 +56,8 @@ class Enemie {
 
   }
 
-  animateImgEnemie() {
-    console.log(this.animateImgEnemie)
+  animateImgEnemy() {
+    console.log(this.animateImgEnemy)
     // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
     if (this.game.framesCounter % 2 === 0) {
       this.imgEnemy.frameIndex += 1;

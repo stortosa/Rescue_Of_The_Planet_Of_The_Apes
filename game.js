@@ -15,7 +15,7 @@ var Game = {
   init: function (id) {
 
     // this.backgroundCounter ++ç
-        this.canvas = document.getElementById(id);
+    this.canvas = document.getElementById(id);
     this.ctx = this.canvas.getContext("2d");
     this.setDimensions();
     this.reset();
@@ -100,7 +100,7 @@ var Game = {
     //la imagen con todas pegadas
     this.background = new Background('./Background/backgroundFinal.png', this.hCanvas, this.wCanvas, this.ctx)
     this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
-    this.enemy = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+    this.enemy = new Enemy(this.ctx, this.wCanvas, this.framesCounter, Game)
     this.apples = [
       new Apple(this.ctx, this.x, this.y)
     ]
@@ -114,7 +114,7 @@ var Game = {
   moveAll: function () {
     this.enemy.move()
     // this.obstacle.move()
-    // this.enemy.animateImgEnemie()
+    // this.enemy.animateImgEnemy()
 
   },
 
