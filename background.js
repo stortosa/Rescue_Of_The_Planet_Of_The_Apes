@@ -17,15 +17,6 @@ class Background{
   }
   // dibujando el bakcground
   draw(){
-   
-    // this.ctx.drawImage(
-    //   this.img,
-    //   this.x++,
-    //   this.y,
-    //   this.canvasWB,
-    //   this.canvasHB
-    // )
-
     this.ctx.drawImage(
       this.img,
       this.x,
@@ -33,8 +24,6 @@ class Background{
       10000,
       this.canvasHB + 300
     )
-
-  
   }
 
   moveLeft() {
@@ -51,8 +40,6 @@ class Background{
 
   move(){
     this.x -= this.dx;
-
-    //if (this.x < -this.canvasWB) this.x = 0;
   }
 
 }

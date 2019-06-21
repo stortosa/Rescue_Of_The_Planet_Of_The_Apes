@@ -1,7 +1,7 @@
 //creando el protagonista
 
-class Enemie{
-  constructor(ctx, wCanvas, framesCounter, game){  //keys
+class Enemie {
+  constructor(ctx, wCanvas, framesCounter, game) {  //keys
     this.ctx = ctx;
     this.wCanvas = wCanvas;
     this.game = framesCounter
@@ -14,7 +14,6 @@ class Enemie{
     this.gravity = 0.4;
     this.enemieSpeed = 5;
 
-
     this.imgEnemy = new Image();
     this.imgEnemy.src = './Images/gorillaBueno.png';
     // número de imágenes diferentes
@@ -23,7 +22,7 @@ class Enemie{
 
     this.vel0 = 0;
     this.velY = this.vel0;
-    
+
     // this.velJump = 10;
 
 
@@ -31,45 +30,40 @@ class Enemie{
     this.frameWidth = this.frameWidthTotal / 5;
     this.frameHeightTotal = 140;
 
-   
-
     // this.setListener();  
   }
-  
-  
-  
-  move(){
+
+  move() {
     this.posX -= this.enemieSpeed
   }
-  draw(){   
+  draw() {
     this.ctx.drawImage(
-    this.imgEnemy,
-    this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,
-    0,
-    Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
-    this.frameHeight,
-    500, //donde ponerlo inicio
-    500,
-    200,
-    200
+      this.imgEnemy,
+      this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.cFrame,
+      0,
+      Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
+      this.frameHeight,
+      500, //donde ponerlo inicio
+      500,
+      200,
+      200
     )
-        this.cFrame++
-        if(this.cFrame > 5){
-          this.cFrame = 0;
-        }
-        // this.posX -= this.enemieSpeed
+    this.cFrame++
+    if (this.cFrame > 5) {
+      this.cFrame = 0;
+    }
+    // this.posX -= this.enemieSpeed
 
-    
   }
 
-   animateImgEnemie() {
+  animateImgEnemie() {
     console.log(this.animateImgEnemie)
-   // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-   if (this.game.framesCounter % 2 === 0) {
-   this.imgEnemy.frameIndex += 1;
-   console.log(this.imgEnemy.frameIndex)
-   // Si el frame es el último, se vuelve al primero
-     if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
-       }
-   }
+    // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
+    if (this.game.framesCounter % 2 === 0) {
+      this.imgEnemy.frameIndex += 1;
+      console.log(this.imgEnemy.frameIndex)
+      // Si el frame es el último, se vuelve al primero
+      if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
+    }
+  }
 }

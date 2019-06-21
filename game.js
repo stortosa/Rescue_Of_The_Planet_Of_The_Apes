@@ -55,8 +55,6 @@ var Game = {
       //   this.posY -= 5;
       //   this.vy -= 10;
       // } 
-
-     
     }
 
     this.start();
@@ -68,9 +66,6 @@ var Game = {
     this.canvas.setAttribute("width", this.wCanvas)
     this.canvas.setAttribute("height", this.hCanvas)
   },
-
-
-
 
   start: function () {
     this.fps = 60;
@@ -136,7 +131,6 @@ var Game = {
     // this.obstacle.draw()
     // this.obstacle.draw()
     // this.scoreBoard.draw()
-
-  },
+  }
 
 }
