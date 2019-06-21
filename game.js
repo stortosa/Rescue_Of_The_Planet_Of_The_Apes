@@ -7,11 +7,9 @@ var Game = {
   wCanvas:undefined,
   framesCounter: 0,
   backgroundCounter: 0,
-  keys: {
-    // TOP_KEY: 38,
-    // SPACE: 32
+  // keys: {
   
-  },
+  // },
   
 
 init: function(id){
@@ -94,23 +92,29 @@ reset: function() {
   //la imagen con todas pegadas
 this.background = new Background('./Images/pruebaStage.png', this.hCanvas, this.wCanvas, this.ctx)
 this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
-this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
-this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+// this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+// this.obstacle = new Obstacle(this.ctx,this.w)
+// this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
 
 // this.obstacle = new Obstacle(x, y)
 },
 
 // mover todo:
 moveAll: function() {
+  // this.obstacle.move()
+  // this.enemie.move()
+  // this.enemie.animateImgEnemie()
+
 },
 
 
 // dibujar todo:
 drawAll: function(){
-  this.scoreBoard.draw()
+  // this.scoreBoard.draw()
   this.background.draw()
   this.player.draw()
-  this.enemie.draw()
+  // this.enemie.draw()
+  // this.obstacle.draw()
   // this.obstacle.draw()
 
 },

@@ -4,7 +4,7 @@ class Enemie{
   constructor(ctx, wCanvas, framesCounter, game){  //keys
     this.ctx = ctx;
     this.wCanvas = wCanvas;
-    this.game = game
+    this.game = framesCounter
     this.enemieW = 100;
     this.enemieH = 150;
     this.posX = 200;
@@ -27,8 +27,9 @@ class Enemie{
     // this.velJump = 10;
 
 
-    this.frameWidth = 86;  
-    this.frameHeight = 140;
+    this.frameWidthTotal = 423;
+    this.frameWidth = this.frameWidthTotal / 5
+    this.frameHeightTotal = 140;
 
    
 
@@ -36,24 +37,23 @@ class Enemie{
   }
 
   
-  // animateImg() {
-    
-  //   // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
-  //   if (this.game.framesCounter % 2 === 0) {
-  //     this.img.frameIndex += 1;
-      
-
-  //     // Si el frame es el último, se vuelve al primero
-  //     if (this.img.frameIndex > 9) this.img.frameIndex = 0;
-  //   }
-  // }
+  animateImgEnemie() {
+    console.log(this.animateImgEnemie)
+    // se va cambiando el frame. Cuanto mayor es el módulo, mas lento se mueve el personaje
+    if (this.game.framesCounter % 2 === 0) {
+      this.imgEnemy.frameIndex += 1;
+      console.log(this.imgEnemy.frameIndex)
+      // Si el frame es el último, se vuelve al primero
+      if (this.imgEnemy.frameIndex > 5) this.imgEnemy.frameIndex = 0;
+    }
+  }
  
   draw(){   
       this.ctx.drawImage(
         this.imgEnemy,
-        this.imgEnemy.frameIndex * this.cFrame,
+        this.imgEnemy.frameIndex * Math.floor(this.imgEnemy.width / this.imgEnemy), //this.cFrame,
         0,
-        this.frameWidth,  // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
+        Math.floor(this.imgEnemy.width / this.imgEnemy.frames), // Math.floor(this.imgEnemy.width / this.imgEnemy.frames), //this.frameWidth,
         this.frameHeight,
         500, //donde ponerlo inicio
         500,
@@ -72,6 +72,6 @@ class Enemie{
   }
 
   move(){
-    // this.posX -= this.enemieSpeed
+     this.posX -= this.enemieSpeed
   }
 }
