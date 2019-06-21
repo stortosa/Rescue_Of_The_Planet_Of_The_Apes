@@ -32,10 +32,7 @@ var Game = {
       }
 
       if (e.keyCode === 32) {
-        debugger
         this.player.moveJump()
-
-
       }
 
       /////////
@@ -103,7 +100,7 @@ var Game = {
     //la imagen con todas pegadas
     this.background = new Background('./Background/backgroundFinal.png', this.hCanvas, this.wCanvas, this.ctx)
     this.player = new Player(this.ctx, this.wCanvas, this.framesCounter, Game)
-    this.enemie = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
+    this.enemy = new Enemie(this.ctx, this.wCanvas, this.framesCounter, Game)
     this.apples = [
       new Apple(this.ctx, this.x, this.y)
     ]
@@ -115,9 +112,9 @@ var Game = {
 
   // mover todo:
   moveAll: function () {
-    this.enemie.move()
+    this.enemy.move()
     // this.obstacle.move()
-    // this.enemie.animateImgEnemie()
+    // this.enemy.animateImgEnemie()
 
   },
 
@@ -127,7 +124,7 @@ var Game = {
     this.background.draw()
     this.player.draw()
     this.apples.forEach(apple => apple.draw())
-    this.enemie.draw()
+    this.enemy.draw()
     // this.obstacle.draw()
     // this.obstacle.draw()
     // this.scoreBoard.draw()

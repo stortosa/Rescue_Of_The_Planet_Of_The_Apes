@@ -5,14 +5,14 @@ class Enemie {
     this.ctx = ctx;
     this.wCanvas = wCanvas;
     this.game = framesCounter
-    this.enemieW = 100;
-    this.enemieH = 150;
+    this.enemyW = 100;
+    this.enemyH = 150;
     this.posX = 200;
     this.x0 = 30 // para avanzar el muñeco en pixeles
     this.posY = 500;
     this.cFrame = 0;
     this.gravity = 0.4;
-    this.enemieSpeed = 5;
+    this.enemySpeed = 5;
 
     this.imgEnemy = new Image();
     this.imgEnemy.src = './Images/gorillaBueno.png';
@@ -34,7 +34,7 @@ class Enemie {
   }
 
   move() {
-    this.posX -= this.enemieSpeed
+    this.posX -= this.enemySpeed
   }
   draw() {
     this.ctx.drawImage(
@@ -52,7 +52,7 @@ class Enemie {
     if (this.cFrame > 5) {
       this.cFrame = 0;
     }
-    // this.posX -= this.enemieSpeed
+    // this.posX -= this.enemySpeed
 
   }
 
