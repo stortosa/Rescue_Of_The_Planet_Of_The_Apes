@@ -69,7 +69,7 @@ class Player{
     this.keys.right = true;
     this.keys.left = false;
     // this.keys.jump = true;
-    this.posX += 10;
+    this.posX += 40;
 
     this.animateImg()
     if (this.posX > 700) { //limitano el movimiento en la pantalla
@@ -84,7 +84,7 @@ class Player{
     this.keys.left = true;
     this.keys.right = false;
     // this.keys.jump = false;
-    this.posX -= 10;  
+    this.posX -= 40;  
     if (this.posX < 40) {
         this.posX = 40
     }
