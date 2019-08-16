@@ -101,16 +101,8 @@ var Game = {
       new Apple(this.ctx, 200, 500),
       new Apple(this.ctx, 330, 500),
       new Apple(this.ctx, 450, 500),
-      new Apple(this.ctx, 600, 500),
-      new Apple(this.ctx, 725, 500),
-      new Apple(this.ctx, 850, 500),
-      new Apple(this.ctx, 1000, 500),
-
     ]
-    // this.obstacle = new Obstacle(this.ctx,this.w)
-    // this.scoreBoard = new ScoreBoard(this.ctx, this.wCanvas)
 
-    // this.obstacle = new Obstacle(x, y)
   },
 
   // mover todo:
