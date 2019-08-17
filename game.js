@@ -118,24 +118,6 @@ var Game = {
 
   },
 
-  //comprobando los choques/colisiones:
-  // checkForEnemies: function () {
-  //   this.enemies.forEach((enemy, index) => {
-  //     if (this.player.x + 80 >= enemy.x &&
-  //       enemy.x + 80 >= this.player.x &&
-  //       this.player.y + 80 >= enemy.y &&
-  //       enemy.y + 80 >= this.player.y) {
-
-  //       delete this.enemies[index]
-
-  //       this.player -= 1
-
-  //       if (this.player < 0) {
-  //         this.stop()
-  //       }
-  //     }
-  //   })
-  // },
 
   //MAS COLISIONES:
   isCollision: function () {
