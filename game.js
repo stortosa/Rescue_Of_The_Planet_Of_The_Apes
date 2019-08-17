@@ -20,6 +20,7 @@ var Game = {
     this.setDimensions();
     this.reset();
 
+
     window.onkeydown = (e) => {
       if (e.keyCode === 37) {
         this.player.moveLeft()
@@ -75,8 +76,12 @@ var Game = {
 
       this.drawAll()
       this.moveAll()
-
+      // this.checkForPowerUps()
       this.apples.forEach(apple => apple.draw())
+
+      if (this.isCollision()) {
+        this.gameOver();
+      }
 
     }, 1000 / this.fps)
 
@@ -89,7 +94,15 @@ var Game = {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); //   clearRect(0,0,this.canvasW,this.canvasH)
   },
 
+  //fin del juego:
+  gameOver: function () {
+    this.stop();
 
+    if (confirm("GAME OVER. Play again?")) {
+      this.reset();
+      this.start();
+    }
+  },
   // resetear todos los elementos del juego para empezar con todo limpio
   reset: function () {
 
@@ -105,15 +118,44 @@ var Game = {
 
   },
 
+  //comprobando los choques/colisiones:
+  // checkForEnemies: function () {
+  //   this.enemies.forEach((enemy, index) => {
+  //     if (this.player.x + 80 >= enemy.x &&
+  //       enemy.x + 80 >= this.player.x &&
+  //       this.player.y + 80 >= enemy.y &&
+  //       enemy.y + 80 >= this.player.y) {
+
+  //       delete this.enemies[index]
+
+  //       this.player -= 1
+
+  //       if (this.player < 0) {
+  //         this.stop()
+  //       }
+  //     }
+  //   })
+  // },
+
+  //MAS COLISIONES:
+  isCollision: function () {
+    // colisiones genéricas
+    // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
+    // esto chequea que el personaje no estén en colisión con cualquier obstáculo
+    return this.enemies.some(enemy => {
+      return (
+        this.player.x + this.player.w >= enemy.x &&
+        this.player.x < enemy.x + enemy.w &&
+        this.player.y + (this.player.h - 20) >= enemy.y
+      );
+    });
+  },
+
   // mover todo:
   moveAll: function () {
     this.enemy.move()
-    this.apple.move()
-    // this.obstacle.move()
-    // this.enemy.animateImgEnemy()
-
+    // this.apple.move()
   },
-
 
   // dibujar todo:
   drawAll: function () {
@@ -121,9 +163,6 @@ var Game = {
     this.player.draw()
     this.apples.forEach(apple => apple.draw())
     this.enemy.draw()
-    // this.obstacle.draw()
-    // this.obstacle.draw()
-    // this.scoreBoard.draw()
   }
 
 }
